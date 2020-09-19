@@ -3,16 +3,16 @@
 Este é um script de amostra que analisa IP's e URL's publicados no site da <a href = "https://support.zoom.us/hc/en-us/articles/201362683-Network-firewall-or-proxy-server-settings-for-Zoom">Zoom</a>. O script analisará todos os IP's e URL's de serviço de Web do Zoom em 2 lista (respectivamente) e usará a API do FMC para carregar em 2 objetos de grupo. Esses objetos de grupo podem ser usados ​​em uma regra de "trust" / "prefilter" do FirePower. Ao fazer isso, o tráfego é excluído de inspeção adicional para evitar problemas de latência com os aplicativos Zoom.
 
 # Features
-• Pegar todos IPs e URLs  do Zoom com REST-based web service;
-• Criação do formato JSON correto para API do FMC (PUT requests)
-• Upa este JSON para o FMC, sobrescrevendo o Objeto de Grupo anterior;
-• Checa se o arquivo do Zoom foi atualizado e aplica a atualização automáticamente;
-• Auto-Deploy de política usando API quando mudanças foram feitas nos Objetos (OPCIONAL*** E cuidado, isso também implementará outras mudanças de política não relacionadas);
-• Alerta via Webex Teams quando alguma mudança no objeto for feita;
+• Pegar todos IPs e URLs  do Zoom com REST-based web service;<br>
+• Criação do formato JSON correto para API do FMC (PUT requests)<br>
+• Upa este JSON para o FMC, sobrescrevendo o Objeto de Grupo anterior;<br>
+• Checa se o arquivo do Zoom foi atualizado e aplica a atualização automáticamente;<br>
+• Auto-Deploy de política usando API quando mudanças foram feitas nos Objetos (OPCIONAL*** E cuidado, isso também implementará outras mudanças de política não relacionadas);<br>
+• Alerta via Webex Teams quando alguma mudança no objeto for feita;<br>
 • Verificação constante se há atualizações com um intervalo de tempo especificado (OPCIONAL).
 
 # Cisco Products / Services
-• Cisco Firepower Management Center;
+• Cisco Firepower Management Center;<br>
 • Cisco Firepower Threat Defense NGFW.
 
 # Instalação
@@ -38,3 +38,14 @@ Essas instruções permitirão que você baixe o script e execute-o, de modo que
 <b> intervalScheduler(WebServiceParser, 3600) #set to 1 hour </b>
 	
 9. Finalmente, se desejar fazer o deploy as políticas automaticamente, você pode definir "AUTO_DEPLOY" como true no arquivo config.json. Tenha muito cuidado com isso, pois políticas não concluídas podem ser implantadas ao fazer isso.
+
+# Como usar os objetos de grupo no Firepower Management Center
+
+Para uma melhor compreensão do fluxo de pacotes no Firepower Threat Defense e como funciona a ação Fastpath na Política de pré-filtro, revise o seguinte diagrama de fluxo:
+
+
+
+
+
+
+

@@ -1,7 +1,10 @@
 # Zoom Web Service API para o Firepower Objects Parser
+
+# Autor(s)
 <b> Este script é origimente feito por:<br>
 	• Christopher van der Made (Cisco)<br>
 	• Alan Nix (Cisco)<br>
+	• *Valentim Muniz (Cisco)<br>
 	Modificado por mim, muitas mudanças, melhorias e claro o suporte à plataforma do Zoom.
 </b>
 
@@ -15,6 +18,7 @@ Este é um script de amostra que analisa IP's e URL's publicados no site da <a h
 • Auto-Deploy de política usando API quando mudanças foram feitas nos Objetos (OPCIONAL*** E cuidado, isso também implementará outras mudanças de política não relacionadas);<br>
 • Alerta via Webex Teams quando alguma mudança no objeto for feita;<br>
 • Verificação constante se há atualizações com um intervalo de tempo especificado (OPCIONAL).
+• Configurações podem ser mudadas através do arquivo config.json, caso não for baixado o script cria esse arquivo automáticamente.
 
 # Cisco Products / Services
 • Cisco Firepower Management Center;<br>
@@ -39,19 +43,35 @@ Essas instruções permitirão que você baixe o script e execute-o, de modo que
 7. Depois de concluído, você precisa executar o script (certifique-se de estar no mesmo diretório que os arquivos clonados do git):<br>
 <b> python3.6 Zoom_API.py </b>
 	
-8. Opcionalmente, você pode permitir que este script seja executado periodicamente, definindo "SERVICE" como true no arquivo config.json. Na linha 479 do Zoom_API.py o período de tempo é definido, por padrão é definido como uma hora (recomendo que você verifique a versão diariamente, ou no máximo a cada hora):<br>
-<b> intervalScheduler(WebServiceParser, 3600) #set to 1 hour </b>
+8. Opcionalmente, você pode permitir que este script seja executado periodicamente, definindo "SERVICE" como true no arquivo config.json. Através da do arquivo config.json, coloque o período de tempo desejado em <b>segundos</b>, por padrão é definido como uma hora (recomendo que você verifique a versão diariamente, ou no máximo a cada hora):<br>
+<b> "intervalScheduler_Time": 3600 # 3600 = 1 hora </b>
 	
 9. Finalmente, se desejar fazer o deploy as políticas automaticamente, você pode definir "AUTO_DEPLOY" como true no arquivo config.json. Tenha muito cuidado com isso, pois políticas não concluídas podem ser implantadas ao fazer isso.
 
 # Como usar os objetos de grupo no Firepower Management Center
 
 Para uma melhor compreensão do fluxo de pacotes no Firepower Threat Defense e como funciona a ação Fastpath na Política de pré-filtro, revise o seguinte diagrama de fluxo:<br><br>
-<img src="screenshots_FMC/packetflowftd.png"><br><br>
+<img src="screenshots_FMC/packetflowftd.png"><br><br><br>
 
 Após as solicitações PUT bem-sucedidas, os 2 Objetos de Grupo serão atualizados com os novos endereços IP e URLs. Segue print dos 2 objetos de grupo, após a chamada de API <br>
-<img src="screenshots_FMC/IPs_NETOWORKOBJECT.png"><br><br>
-<img src="screenshots_FMC/URL_OBJECT.png"><br><br>
+<img src="screenshots_FMC/IPs_NETOWORKOBJECT.png"><br><br><br>
+<img src="screenshots_FMC/URL_OBJECT.png"><br><br><br>
+
+Esses objetos podem ser usados em qualquer regra de Fastpath da política de pré-filtro (para o objeto de rede) ou em uma regra de confiança da política de controle(ACP) de acesso (para o objeto de URL). Este é um exemplo de como configurar a regra da Política de Pré-filtro no FMC:<br><br><br>
+<img src="screenshots_FMC/Prefilter.png"><br><br><br>
+
+Da mesma forma, isso pode ser feito com uma regra de "trust" na política de controle de acesso (ACP) para o objeto de grupo de URL e Network trabalhando juntos ou separado, claro que isso depende de cada ambiente:
+<img src="screenshots_FMC/ACP.png"><br><br><br>
+
+# Por favor, tome cuidado com as seguintes notas:
+• Esteja ciente de que um deploy de política é necessário para atualizar os Grupos de Objetos nas Políticas usadas. Atualmente, há uma chamada API opcional integrada para fazer um auto-deploy de política, no entanto, comod dito acima, tome cuidado ao usá-la, pois isso pode causar um deploy de outras políticas ou objetos não relacionados (por exemplo, se outro administrador de rede estiver trabalhando em uma política na GUI).<br>
+
+• O importante é usar a verificação SSL e testar o script antes de executá-lo em um ambiente de produção. No arquivo config.json, defina o parâmetro "SSL_VERIFY" como true e, em seguida, defina "SSL_CERT" como o caminho para o certificado do FMC. <br>
+
+• Teste isso adequadamente antes de implementar em um ambiente de produção. Este é um script de amostra. <br>
+
+• Caso o intervalScheduler seja usado: o script em execução deve ser hospedado em um ambiente seguro! Por exemplo: se um agente malicioso puder colocar endereços IP ou URLs adicionais na lista de alguma forma, eles serão colocados em uma regra de confiança do Firepower e podem fazer com que o agente malicioso ignore a segurança.
+
 
 
 

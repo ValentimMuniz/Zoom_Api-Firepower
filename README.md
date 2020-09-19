@@ -54,7 +54,7 @@ Para uma melhor compreensão do fluxo de pacotes no Firepower Threat Defense e c
 <img src="screenshots_FMC/packetflowftd.png"><br><br><br>
 
 Após as solicitações PUT bem-sucedidas, os 2 Objetos de Grupo serão atualizados com os novos endereços IP e URLs. Segue print dos 2 objetos de grupo, após a chamada de API <br>
-<img src="screenshots_FMC/IPs_NETOWORKOBJECT.png"><br><br><br>
+<img src="screenshots_FMC/NETOWORKOBJECT.png"><br><br><br>
 <img src="screenshots_FMC/URL_OBJECT.png"><br><br><br>
 
 Esses objetos podem ser usados em qualquer regra de Fastpath da política de pré-filtro (para o objeto de rede) ou em uma regra de confiança da política de controle(ACP) de acesso (para o objeto de URL). Este é um exemplo de como configurar a regra da Política de Pré-filtro no FMC:<br><br><br>

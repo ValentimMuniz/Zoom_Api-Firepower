@@ -1,5 +1,7 @@
 # Zoom Web Service API para o Firepower Objects Parser
 
+<p style="color:blue">This is another paragraph.</p>
+
 Este é um script de amostra que analisa IP's e URL's publicados no site da <a href = "https://support.zoom.us/hc/en-us/articles/201362683-Network-firewall-or-proxy-server-settings-for-Zoom">Zoom</a>. O script analisará todos os IP's e URL's de serviço de Web do Zoom em 2 lista (respectivamente) e usará a API do FMC para carregar em 2 objetos de grupo. Esses objetos de grupo podem ser usados ​​em uma regra de "trust" / "prefilter" do FirePower. Ao fazer isso, o tráfego é excluído de inspeção adicional para evitar problemas de latência com os aplicativos Zoom.
 
 # Features
@@ -41,7 +43,12 @@ Essas instruções permitirão que você baixe o script e execute-o, de modo que
 
 # Como usar os objetos de grupo no Firepower Management Center
 
-Para uma melhor compreensão do fluxo de pacotes no Firepower Threat Defense e como funciona a ação Fastpath na Política de pré-filtro, revise o seguinte diagrama de fluxo:
+Para uma melhor compreensão do fluxo de pacotes no Firepower Threat Defense e como funciona a ação Fastpath na Política de pré-filtro, revise o seguinte diagrama de fluxo:<br><br>
+<img src="screenshots_FMC/packetflowftd.png"><br><br>
+
+Após as solicitações PUT bem-sucedidas, os 2 Objetos de Grupo serão atualizados com os novos endereços IP e URLs. Segue print dos 2 objetos de grupo, após a chamada de API <br>
+<img src="screenshots_FMC/IPs_NETOWORKOBJECT.png"><br><br>
+<img src="screenshots_FMC/URL_OBJECT.png"><br><br>
 
 
 

@@ -17,7 +17,7 @@ Este é um script de amostra que analisa IP's e URL's publicados no site da <a h
 • Checa se o arquivo do Zoom foi atualizado e aplica a atualização automáticamente;<br>
 • Auto-Deploy de política usando API quando mudanças foram feitas nos Objetos (OPCIONAL*** E cuidado, isso também implementará outras mudanças de política não relacionadas);<br>
 • Alerta via Webex Teams quando alguma mudança no objeto for feita;<br>
-• Verificação constante se há atualizações com um intervalo de tempo especificado (OPCIONAL).
+• Verificação constante se há atualizações com um intervalo de tempo especificado (OPCIONAL).<br>
 • Configurações podem ser mudadas através do arquivo config.json, caso não for baixado o script cria esse arquivo automáticamente.
 
 # Cisco Products / Services

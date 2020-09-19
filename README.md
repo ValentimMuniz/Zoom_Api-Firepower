@@ -63,7 +63,7 @@ Esses objetos podem ser usados em qualquer regra de Fastpath da política de pr�
 Da mesma forma, isso pode ser feito com uma regra de "trust" na política de controle de acesso (ACP) para o objeto de grupo de URL e Network trabalhando juntos ou separado, claro que isso depende de cada ambiente:
 <img src="screenshots_FMC/ACP.png"><br><br><br>
 
-# Por favor, tome cuidado com as seguintes notas:
+# Tome cuidado com as seguintes notas:
 • Esteja ciente de que um deploy de política é necessário para atualizar os Grupos de Objetos nas Políticas usadas. Atualmente, há uma chamada API opcional integrada para fazer um auto-deploy de política, no entanto, comod dito acima, tome cuidado ao usá-la, pois isso pode causar um deploy de outras políticas ou objetos não relacionados (por exemplo, se outro administrador de rede estiver trabalhando em uma política na GUI).<br>
 
 • O importante é usar a verificação SSL e testar o script antes de executá-lo em um ambiente de produção. No arquivo config.json, defina o parâmetro "SSL_VERIFY" como true e, em seguida, defina "SSL_CERT" como o caminho para o certificado do FMC. <br>

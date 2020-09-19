@@ -1,6 +1,9 @@
 # Zoom Web Service API para o Firepower Objects Parser
-
-<p style="color:blue">This is another paragraph.</p>
+<b> Este script é origimente feito por:<br>
+	• Christopher van der Made (Cisco)<br>
+	• Alan Nix (Cisco)<br>
+	Modificado por mim, muitas mudanças, melhorias e claro o suporte à plataforma do Zoom.
+</b>
 
 Este é um script de amostra que analisa IP's e URL's publicados no site da <a href = "https://support.zoom.us/hc/en-us/articles/201362683-Network-firewall-or-proxy-server-settings-for-Zoom">Zoom</a>. O script analisará todos os IP's e URL's de serviço de Web do Zoom em 2 lista (respectivamente) e usará a API do FMC para carregar em 2 objetos de grupo. Esses objetos de grupo podem ser usados ​​em uma regra de "trust" / "prefilter" do FirePower. Ao fazer isso, o tráfego é excluído de inspeção adicional para evitar problemas de latência com os aplicativos Zoom.
 

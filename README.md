@@ -3,8 +3,8 @@
 Este é um script de amostra que analisa IP's e URL's publicados no site da <a href = "https://support.zoom.us/hc/en-us/articles/201362683-Network-firewall-or-proxy-server-settings-for-Zoom">Zoom</a>. O script analisará todos os IP's e URL's de serviço de Web do Zoom em 2 lista (respectivamente) e usará a API do FMC para carregar em 2 objetos de grupo. Esses objetos de grupo podem ser usados ​​em uma regra de "trust" / "prefilter" do FirePower. Ao fazer isso, o tráfego é excluído de inspeção adicional para evitar problemas de latência com os aplicativos Zoom.
 
 # Features
-• Pegar todos IPs e URLs  do Zoom com REST-based web service;<br>
-• Criação do formato JSON correto para API do FMC (PUT requests)<br>
+• Pegar todos IPs e URLs do Zoom com REST-based web service;<br>
+• Criação de arquivos no formato JSON e colocados na pasta json do diretório, para API do FMC (PUT requests)<br>
 • Upa este JSON para o FMC, sobrescrevendo o Objeto de Grupo anterior;<br>
 • Checa se o arquivo do Zoom foi atualizado e aplica a atualização automáticamente;<br>
 • Auto-Deploy de política usando API quando mudanças foram feitas nos Objetos (OPCIONAL*** E cuidado, isso também implementará outras mudanças de política não relacionadas);<br>

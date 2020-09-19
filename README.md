@@ -4,7 +4,7 @@
 <b> Este script é origimente feito por:<br>
 	• Christopher van der Made (Cisco)<br>
 	• Alan Nix (Cisco)<br>
-	• *Valentim Muniz (Cisco)<br>
+	• *Valentim Uliana (Cisco)<br>
 	Modificado por mim, muitas mudanças, melhorias e claro o suporte à plataforma do Zoom.
 </b>
 

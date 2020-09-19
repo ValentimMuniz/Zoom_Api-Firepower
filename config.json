@@ -1,0 +1,13 @@
+{
+    "FMC_IP": "",
+    "FMC_USER": "",
+    "FMC_PASS": "",
+    "IP_BYPASS_UUID": "",
+    "URL_BYPASS_UUID": "",
+    "SERVICE": false,
+    "SSL_VERIFY": false,
+    "SSL_CERT": "/path/to/certificate",
+    "AUTO_DEPLOY": false,
+    "WEBEX_ACCESS_TOKEN": "",
+    "WEBEX_ROOM_ID": ""
+}

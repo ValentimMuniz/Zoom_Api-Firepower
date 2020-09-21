@@ -8,7 +8,7 @@
 	Modificado por mim, muitas mudanças, melhorias e claro o suporte à plataforma do Zoom.
 </b>
 
-Este é um script de amostra que analisa IP's e URL's publicados no site da <a href = "https://support.zoom.us/hc/en-us/articles/201362683-Network-firewall-or-proxy-server-settings-for-Zoom">Zoom</a>. O script analisará todos os IP's e URL's de serviço de Web do Zoom em 2 lista (respectivamente) e usará a API do FMC para carregar em 2 objetos de grupo. Esses objetos de grupo podem ser usados ​​em uma regra de "trust" / "prefilter" do FirePower. Ao fazer isso, o tráfego é excluído de inspeção adicional para evitar problemas de latência com os aplicativos Zoom.
+Este é um script de amostra que analisa IP's e URL's publicados no site da <a href = "https://support.zoom.us/hc/en-us/articles/201362683-Network-firewall-or-proxy-server-settings-for-Zoom">Zoom</a>. O script analisará todos os IP's e URL's de serviço de Web do Zoom em 2 lista (respectivamente) e usará a API do FMC para carregar em grupos de objetos. Esses objetos de grupo podem ser usados em uma regra de "trust" / "prefilter" do FirePower. Ao fazer isso, o tráfego é excluído de inspeção adicional para evitar problemas de latência com os aplicativos Zoom.
 
 # Features
 • Pegar todos IPs e URLs do Zoom com REST-based web service;<br>
@@ -62,7 +62,10 @@ Após as solicitações PUT bem-sucedidas, os 2 Objetos de Grupo serão atualiza
 Esses objetos podem ser usados em qualquer regra de Fastpath da política de pré-filtro (para o objeto de rede) ou em uma regra de confiança da política de controle(ACP) de acesso (para o objeto de URL). Este é um exemplo de como configurar a regra da Política de Pré-filtro no FMC:<br><br><br>
 <img src="screenshots_FMC/Prefilter.png"><br><br><br>
 
-Da mesma forma, isso pode ser feito com uma regra de "trust" na política de controle de acesso (ACP) para o objeto de grupo de URL e Network trabalhando juntos ou separado, claro que isso depende de cada ambiente:
+Da mesma forma, isso pode ser feito com uma regra de "trust" na política de controle de acesso (ACP) para o objeto de 
+
+
+URL e Network trabalhando juntos ou separado, claro que isso depende de cada ambiente:
 <img src="screenshots_FMC/ACP.png"><br><br><br>
 
 # Tome cuidado com as seguintes notas:

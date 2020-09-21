@@ -13,7 +13,7 @@ Este é um script de amostra que analisa IP's e URL's publicados no site da <a h
 # Features
 • Pegar todos IPs e URLs do Zoom com REST-based web service;<br>
 • Criação de arquivos no formato JSON e colocados na pasta json do diretório, para API do FMC (PUT requests)<br>
-• Upa este JSON para o FMC, sobrescrevendo o Objeto de Grupo anterior;<br>
+• Upa este JSON para o FMC, sobrescrevendo o Grupo de Objeto anterior;<br>
 • Checa se o arquivo do Zoom foi atualizado e aplica a atualização automáticamente;<br>
 • Auto-Deploy de política usando API quando mudanças foram feitas nos Objetos (OPCIONAL*** E cuidado, isso também implementará outras mudanças de política não relacionadas);<br>
 • Alerta via Webex Teams quando alguma mudança no objeto for feita;<br>
@@ -50,22 +50,19 @@ PARA: <b> #import webexteamssdk </b>
 	
 9. Finalmente, se desejar fazer o deploy as políticas automaticamente, você pode definir "AUTO_DEPLOY" como true no arquivo config.json. Tenha muito cuidado com isso, pois políticas não concluídas podem ser implantadas ao fazer isso.
 
-# Como usar os objetos de grupo no Firepower Management Center
+# Como usar os grupos de objetos no Firepower Management Center (FMC)
 
 Para uma melhor compreensão do fluxo de pacotes no Firepower Threat Defense e como funciona a ação Fastpath na Política de pré-filtro, revise o seguinte diagrama de fluxo:<br><br>
 <img src="screenshots_FMC/packetflowftd.png"><br><br><br>
 
-Após as solicitações PUT bem-sucedidas, os 2 Objetos de Grupo serão atualizados com os novos endereços IP e URLs. Segue print dos 2 objetos de grupo, após a chamada de API <br>
+Após as solicitações PUT bem-sucedidas, os 2 Objetos de Grupo serão atualizados com os novos endereços IP e URLs. Segue print dos 2 grupos de objetos, após a chamada de API <br>
 <img src="screenshots_FMC/NETOWORKOBJECT.png"><br><br><br>
 <img src="screenshots_FMC/URL_OBJECT.png"><br><br><br>
 
-Esses objetos podem ser usados em qualquer regra de Fastpath da política de pré-filtro (para o objeto de rede) ou em uma regra de confiança da política de controle(ACP) de acesso (para o objeto de URL). Este é um exemplo de como configurar a regra da Política de Pré-filtro no FMC:<br><br><br>
+Esses objetos podem ser usados em qualquer regra de Fastpath da política de pré-filtro (para o objeto de rede) ou em uma regra de "trust" da política de controle(ACP) de acesso (para o objeto de URL). Este é um exemplo de como configurar a regra da Política de Pré-filtro no FMC:<br><br><br>
 <img src="screenshots_FMC/Prefilter.png"><br><br><br>
 
-Da mesma forma, isso pode ser feito com uma regra de "trust" na política de controle de acesso (ACP) para o objeto de 
-
-
-URL e Network trabalhando juntos ou separado, claro que isso depende de cada ambiente:
+Da mesma forma, isso pode ser feito com uma regra de "trust" na política de controle de acesso (ACP) para o objeto de URL e Network trabalhando juntos ou separado, claro que isso depende de cada ambiente:
 <img src="screenshots_FMC/ACP.png"><br><br><br>
 
 # Tome cuidado com as seguintes notas:

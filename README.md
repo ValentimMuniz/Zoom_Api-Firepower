@@ -55,7 +55,7 @@ PARA: <b> #import webexteamssdk </b>
 Para uma melhor compreensão do fluxo de pacotes no Firepower Threat Defense e como funciona a ação Fastpath na Política de pré-filtro, revise o seguinte diagrama de fluxo:<br><br>
 <img src="screenshots_FMC/packetflowftd.png"><br><br><br>
 
-Após as solicitações PUT bem-sucedidas, os 2 Objetos de Grupo serão atualizados com os novos endereços IP e URLs. Segue print dos 2 grupos de objetos, após a chamada de API <br>
+Após as solicitações PUT bem-sucedidas, os 2 Grupos de Objetos serão atualizados com os novos endereços IP e URLs. Segue print dos 2 grupos de objetos, após a chamada de API <br>
 <img src="screenshots_FMC/NETOWORKOBJECT.png"><br><br><br>
 <img src="screenshots_FMC/URL_OBJECT.png"><br><br><br>
 
